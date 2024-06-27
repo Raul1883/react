@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import decoHeader from "./img/deco-header.svg";
+import underlineHeader from "./img/underline-header.svg";
+import "./App.css";
+import StoreItem from "./components/StoreItem";
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>
+          WALKN
+        </h1>
+        <p>от англ. walking - гуляющий</p>
       </header>
+      <main>
+      <div class={"menu"}>
+        <button href={"#"}>ОБУВЬ</button>
+        <button href={"#"}>ОДЕЖДА</button>
+        <button href={"#"}>О НАС</button>
+      </div>
+
+      <div class={"store"}>
+        <StoreItem info={{ Price: 5500, Name: "крутой ботинок" }}></StoreItem>
+        <StoreItem info={{ Price: 5500, Name: "крутой ботинок" }}></StoreItem>
+        <StoreItem info={{ Price: 5500, Name: "крутой ботинок" }}></StoreItem>
+        <StoreItem info={{ Price: 5500, Name: "крутой ботинок" }}></StoreItem>
+        <StoreItem info={{ Price: 5500, Name: "крутой ботинок" }}></StoreItem>
+        <StoreItem info={{ Price: 5500, Name: "крутой ботинок" }}></StoreItem>
+        <StoreItem info={{ Price: 5500, Name: "крутой ботинок" }}></StoreItem>
+      </div>
+      </main>
     </div>
   );
 }
