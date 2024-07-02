@@ -29,8 +29,6 @@ useEffect(() => {
       newItems = [...addedItems, info];
     }
     setAddedItems(newItems);
-
-    console.log(getData(addedItems));
   };
 
   const items = [
@@ -43,7 +41,7 @@ useEffect(() => {
     let sum = sumOf(addedItems);
     if (sum > 0) {
       tg.MainButton.show();
-      tg.MainButton.setText(sum.toString());
+      tg.MainButton.setText("К оформлению на сумму:" +sum.toString()+"р.");
     } else {
       tg.MainButton.hide();
     }
@@ -62,7 +60,7 @@ useEffect(() => {
   const getData = (arr) => {
     let str = "";
     for (let item of arr) {
-      str += item.Name + " " + item.Price + ";";
+      str += item.Name + ":" + item.Price + ";";
     }
     return str;
   };
