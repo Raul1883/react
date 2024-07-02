@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/react/static/css/main.1ebf9a2d.css",
-    "main.js": "/react/static/js/main.644d04c7.js",
+    "main.js": "/react/static/js/main.6f94f5cb.js",
     "static/js/453.80efc53e.chunk.js": "/react/static/js/453.80efc53e.chunk.js",
     "static/media/cart-plus-svgrepo-com.svg": "/react/static/media/cart-plus-svgrepo-com.199e3c0400a5a7e26500ab60b00fe751.svg",
     "index.html": "/react/index.html",
     "static/media/underline-header.svg": "/react/static/media/underline-header.168474b46949af32fa64aaebbf46bd27.svg",
     "static/media/deco-header.svg": "/react/static/media/deco-header.6f7b15d27067e9422e8e534f68a8cc63.svg",
     "main.1ebf9a2d.css.map": "/react/static/css/main.1ebf9a2d.css.map",
-    "main.644d04c7.js.map": "/react/static/js/main.644d04c7.js.map",
+    "main.6f94f5cb.js.map": "/react/static/js/main.6f94f5cb.js.map",
     "453.80efc53e.chunk.js.map": "/react/static/js/453.80efc53e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1ebf9a2d.css",
-    "static/js/main.644d04c7.js"
+    "static/js/main.6f94f5cb.js"
   ]
 }
