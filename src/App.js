@@ -2,90 +2,98 @@ import decoHeader from "./img/deco-header.svg";
 import underlineHeader from "./img/underline-header.svg";
 import "./App.css";
 import StoreItem from "./components/StoreItem";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 const tg = window.Telegram.WebApp;
 
 function App() {
-  let btns = document.querySelectorAll(".store-button");
-  let cartItems = new Set();
+  const [addedItems, setAddedItems] = useState([]);
 
-  useEffect(() => {
-    tg.expand();
-    tg.MainButton.hide();
-    tg.ready();
-  }, []);
-
-  const OnClose = () => {
-    tg.Close();
-  };
-
-  const OnToggleButton = () => {
-    if (tg.MainButton.isVisible) {
-      tg.MainButton.hide();
-    } else {
-      tg.MainButton.show();
-    }
-  };
-
-  for (let btn of btns) {
-    btn.onclick = () => {
-      let name = btn.getAttribute("data-name");
-      let img = btn.querySelector("img");
-      OnToggleButton();
-      if (cartItems.has(name)) {
-        cartItems.delete(name);
-        btn.style.background = "none";
-        img.style.transform = "rotate(1turn)";
-      } else {
-        cartItems.add(name);
-        btn.style.background = "#D9D9D9";
-        img.style.transform = "rotate(-1turn)";
-      }
-      console.log(cartItems);
-    };
+  const onSendData = () => {
+    tg.sendData(getData(addedItems));
   }
+
+useEffect(() => {
+    tg.onEvent('mainButtonClicked', onSendData)
+    return () => {
+        tg.offEvent('mainButtonClicked', onSendData)
+    }
+}, [onSendData])
+
+  const call = (info) => {
+    let already = addedItems.find((item) => item.Name === info.Name);
+
+    let newItems = [];
+    if (already) {
+      newItems = addedItems.filter((x) => x.Name !== info.Name);
+    } else {
+      newItems = [...addedItems, info];
+    }
+    setAddedItems(newItems);
+
+    console.log(getData(addedItems));
+  };
+
+  const items = [
+    { Price: 5500, Name: "крутой ботинок1", Call: call },
+    { Price: 5500, Name: "крутой ботинок2", Call: call },
+    { Price: 5500, Name: "крутой ботинок3", Call: call },
+  ];
+
+  const updatePrice = (arr) => {
+    let sum = sumOf(addedItems);
+    if (sum > 0) {
+      tg.MainButton.show();
+      tg.MainButton.setText(sum.toString());
+    } else {
+      tg.MainButton.hide();
+    }
+
+    return sum;
+  };
+
+  const sumOf = (arr) => {
+    let s = 0;
+    for (let i of arr) {
+      s += i.Price;
+    }
+    return s;
+  };
+
+  const getData = (arr) => {
+    let str = "";
+    for (let item of arr) {
+      str += item.Name + " " + item.Price + ";";
+    }
+    return str;
+  };
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>WALKN</h1>
         <p>от англ. walking - гуляющий</p>
+        <p className="hidden">{updatePrice(addedItems)}</p>
       </header>
       <main>
-        <div class={"menu"}>
-          <button href={"#"} class={"menu-button"}>
+        <div className={"menu"}>
+          <button
+            href={"#"}
+            className={"menu-button"}
+          >
             ОБУВЬ
           </button>
-          <button href={"#"} class={"menu-button"}>
+          <button href={"#"} className={"menu-button"}>
             ОДЕЖДА
           </button>
-          <button href={"#"} class={"menu-button"}>
+          <button href={"#"} className={"menu-button"}>
             О НАС
           </button>
         </div>
 
-        <div class={"store"}>
-          <StoreItem
-            info={{ Price: 5500, Name: "крутой ботинок1" }}
-          ></StoreItem>
-          <StoreItem
-            info={{ Price: 5500, Name: "крутой ботинок2" }}
-          ></StoreItem>
-          <StoreItem
-            info={{ Price: 5500, Name: "крутой ботинок3" }}
-          ></StoreItem>
-          <StoreItem
-            info={{ Price: 5500, Name: "крутой ботинок4" }}
-          ></StoreItem>
-          <StoreItem
-            info={{ Price: 5500, Name: "крутой ботинок5" }}
-          ></StoreItem>
-          <StoreItem
-            info={{ Price: 5500, Name: "крутой ботинок6" }}
-          ></StoreItem>
-          <StoreItem
-            info={{ Price: 5500, Name: "крутой ботинок7" }}
-          ></StoreItem>
+        <div className={"store"}>
+          {items.map((item) => (
+            <StoreItem info={item} />
+          ))}
         </div>
       </main>
     </div>

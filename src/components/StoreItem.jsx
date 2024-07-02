@@ -1,22 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import cart from "../img/cart-plus-svgrepo-com.svg";
 
 const StoreItem = function (props) {
+  const [flag, setFlag] = useState(true);
+
+  const ButtonClick = function () {
+    setFlag(!flag);
+    props.info.Call(props.info);
+  };
+
   return (
-    <div class={"store-item"}>
+    <div className={"store-item"}>
       <img
         src={
           "https://www.military1st.ru/media/catalog/product/cache/370473b00da80d51dea07108e3e83e0d/s/u/surplus_undercover_stiefel_8inch_boots_BLK_1.jpg"
         }
       />
       <h3>{props.info.Name}</h3>
-      <div class={"price-container"}>
+      <div className={"price-container"}>
         <p>{props.info.Price}</p>
-        <button
-          class={"store-button"}
-          data-name={props.info.Name}
-          data-check={false}
-        >
+        <button className={flag ? "store-button" : "store-button active"}
+         onClick={ButtonClick}>
           <img src={cart} />
         </button>
       </div>
