@@ -10,14 +10,14 @@ function App() {
 
   const onSendData = () => {
     tg.sendData(getData(addedItems));
-  }
+  };
 
-useEffect(() => {
-    tg.onEvent('mainButtonClicked', onSendData)
+  useEffect(() => {
+    tg.onEvent("mainButtonClicked", onSendData);
     return () => {
-        tg.offEvent('mainButtonClicked', onSendData)
-    }
-}, [onSendData])
+      tg.offEvent("mainButtonClicked", onSendData);
+    };
+  }, [onSendData]);
 
   const call = (info) => {
     let already = addedItems.find((item) => item.Name === info.Name);
@@ -35,13 +35,21 @@ useEffect(() => {
     { Price: 5500, Name: "крутой ботинок1", Call: call },
     { Price: 5500, Name: "крутой ботинок2", Call: call },
     { Price: 5500, Name: "крутой ботинок3", Call: call },
+    { Price: 5500, Name: "крутой ботинок3", Call: call },
+    { Price: 5500, Name: "крутой ботинок3", Call: call },
+    { Price: 5500, Name: "крутой ботинок3", Call: call },
+    { Price: 5500, Name: "крутой ботинок3", Call: call },
+    { Price: 5500, Name: "крутой ботинок3", Call: call },
+    { Price: 5500, Name: "крутой ботинок3", Call: call },
+    { Price: 5500, Name: "крутой ботинок3", Call: call },
+    
   ];
 
   const updatePrice = (arr) => {
     let sum = sumOf(addedItems);
     if (sum > 0) {
       tg.MainButton.show();
-      tg.MainButton.setText("К оформлению на сумму:" +sum.toString()+"р.");
+      tg.MainButton.setText("К оформлению на сумму:" + sum.toString() + "р.");
     } else {
       tg.MainButton.hide();
     }
@@ -67,27 +75,8 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>WALKN</h1>
-        <p>от англ. walking - гуляющий</p>
-        <p className="hidden">{updatePrice(addedItems)}</p>
-      </header>
+      <h1>Заголовок</h1>
       <main>
-        <div className={"menu"}>
-          <button
-            href={"#"}
-            className={"menu-button"}
-          >
-            ОБУВЬ
-          </button>
-          <button href={"#"} className={"menu-button"}>
-            ОДЕЖДА
-          </button>
-          <button href={"#"} className={"menu-button"}>
-            О НАС
-          </button>
-        </div>
-
         <div className={"store"}>
           {items.map((item) => (
             <StoreItem info={item} />

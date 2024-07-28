@@ -21,7 +21,7 @@ const StoreItem = function (props) {
         <p>{props.info.Price}</p>
         <button className={flag ? "store-button" : "store-button active"}
          onClick={ButtonClick}>
-          <img src={cart} />
+          Добавить в корзину
         </button>
       </div>
     </div>
