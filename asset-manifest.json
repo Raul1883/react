@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/react/static/css/main.1b6cb6be.css",
-    "main.js": "/react/static/js/main.d14b0072.js",
+    "main.css": "/react/static/css/main.b6720743.css",
+    "main.js": "/react/static/js/main.f26cdb4c.js",
     "static/js/453.80efc53e.chunk.js": "/react/static/js/453.80efc53e.chunk.js",
-    "static/media/cart-plus-svgrepo-com.svg": "/react/static/media/cart-plus-svgrepo-com.199e3c0400a5a7e26500ab60b00fe751.svg",
+    "static/media/slick.svg": "/react/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/react/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/react/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/react/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/react/index.html",
-    "static/media/underline-header.svg": "/react/static/media/underline-header.168474b46949af32fa64aaebbf46bd27.svg",
-    "static/media/deco-header.svg": "/react/static/media/deco-header.6f7b15d27067e9422e8e534f68a8cc63.svg",
-    "main.1b6cb6be.css.map": "/react/static/css/main.1b6cb6be.css.map",
-    "main.d14b0072.js.map": "/react/static/js/main.d14b0072.js.map",
+    "main.b6720743.css.map": "/react/static/css/main.b6720743.css.map",
+    "main.f26cdb4c.js.map": "/react/static/js/main.f26cdb4c.js.map",
     "453.80efc53e.chunk.js.map": "/react/static/js/453.80efc53e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b6cb6be.css",
-    "static/js/main.d14b0072.js"
+    "static/css/main.b6720743.css",
+    "static/js/main.f26cdb4c.js"
   ]
 }
